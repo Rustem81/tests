@@ -16,6 +16,19 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
+    - name: Format code
+      run: |
+        make format
+
+    - name: Commit changes
+      uses: EndBug/add-and-commit@v4
+      with:
+        author_name: ${{ github.actor }}
+        author_email: ${{ github.actor }}@users.noreply.github.com
+        message: "Format code with black"
+        add: "."
+        branch: ${{ github.ref }}
+
     - name: Install dependencies
       run: |
         make install
@@ -25,6 +38,4 @@ jobs:
     #- name: Test with pytest
     #  run: |
     #    make test
-    - name: Format code
-      run: |
-        make format
+    
