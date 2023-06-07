@@ -10,6 +10,8 @@ format:
 
 
 lint:
-	pylint --disable=R,C temp\\hello.py
+	
+
+	pylint $(find . -name "hello.py" | xargs)
 
 all: install lint test
