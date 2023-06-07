@@ -26,3 +26,5 @@ def test_hello_add():
 
 def test_hello_toyou():
     assert toyou("Student2") == "hi Student2"
+
+print('ss')
